@@ -2,13 +2,13 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.4/fireba
 import { getFirestore, doc, setDoc, getDoc, updateDoc, onSnapshot, collection, addDoc } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyABjUot_f2sW5quw2JimDE3TyCHwctUR58",
-  authDomain: "mvp-tello.firebaseapp.com",
-  projectId: "mvp-tello",
-  storageBucket: "mvp-tello.firebasestorage.app",
-  messagingSenderId: "325295301590",
-  appId: "1:325295301590:web:cf7609188b61d4dfaa7a77",
-  measurementId: "G-P5YG3TPHM4"
+  apiKey: "AIzaSyBjQbfVPIsnsoKlF6OjTlgMGQ1RMt9tIlQ",
+  authDomain: "tello-video.firebaseapp.com",
+  projectId: "tello-video",
+  storageBucket: "tello-video.firebasestorage.app",
+  messagingSenderId: "895250012886",
+  appId: "1:895250012886:web:39ffec1964ba94d9a4c777",
+  measurementId: "G-W4FP9KP3RT"
 };
 
 const app = initializeApp(firebaseConfig);
