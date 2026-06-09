@@ -1,51 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tello Video</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tello WebRTC</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="app">
     <section id="home" class="card">
       <div class="brand">TELLO</div>
-      <p class="sub">Простой видеозвонок по ссылке</p>
-
-      <button id="createBtn" class="btn primary">Создать звонок</button>
-
-      <div class="divider"><span>или</span></div>
-
-      <label class="label">Код комнаты</label>
-      <input id="roomInput" class="input" placeholder="TELLO-123456" autocomplete="off" />
-      <button id="joinByCodeBtn" class="btn secondary">Войти по коду</button>
+      <p class="sub">Своя видеосвязь без Jitsi</p>
+      <button id="createBtn" class="primary">Создать звонок</button>
+      <div class="line"><span>или</span></div>
+      <input id="roomInput" placeholder="Код комнаты: TELLO-123456" />
+      <button id="joinBtn" class="secondary">Войти</button>
+      <p class="hint">Отправь код или ссылку другу. Оба должны разрешить камеру и микрофон.</p>
     </section>
 
-    <section id="room" class="card room hidden">
-      <div class="roomTop">
+    <section id="call" class="call hidden">
+      <header class="topbar">
         <div>
-          <div class="small">Комната</div>
-          <h1 id="roomCode">TELLO-000000</h1>
+          <h1 id="roomTitle">TELLO</h1>
+          <p id="status">Подготовка...</p>
         </div>
-        <button id="backBtn" class="exit">Назад</button>
+        <button id="copyBtn" class="small">Ссылка</button>
+      </header>
+
+      <div class="videos">
+        <video id="remoteVideo" autoplay playsinline></video>
+        <video id="localVideo" autoplay playsinline muted></video>
       </div>
 
-      <div class="steps">
-        <div class="step"><b>1</b><span>Скопируй ссылку и отправь другу</span></div>
-        <div class="step"><b>2</b><span>Оба нажмите «Открыть звонок»</span></div>
-        <div class="step"><b>3</b><span>Разрешите камеру и микрофон</span></div>
+      <div id="waitBox" class="wait">
+        <b>Ждём друга</b>
+        <span>Отправь ссылку. Когда друг войдёт, видео появится автоматически.</span>
       </div>
 
-      <button id="copyBtn" class="btn primary">Скопировать ссылку</button>
-      <button id="shareBtn" class="btn secondary">Поделиться</button>
-      <button id="openCallBtn" class="btn call">Открыть звонок</button>
-
-      <p class="hint">Важно: друг должен открыть эту же ссылку и тоже нажать «Открыть звонок».</p>
+      <footer class="controls">
+        <button id="micBtn">Микрофон</button>
+        <button id="camBtn">Камера</button>
+        <button id="flipBtn">Сменить</button>
+        <button id="hangupBtn" class="danger">Выйти</button>
+      </footer>
     </section>
   </main>
 
-  <div id="toast" class="toast hidden">Ссылка скопирована</div>
-
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
