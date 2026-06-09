@@ -2,40 +2,73 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Tello Video — видеозвонки по ссылке</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="app">
     <section class="card" id="homeScreen">
-      <div class="logo">TELLO</div>
-      <p class="subtitle">Простые видеозвонки без регистрации</p>
+      <div class="brand">
+        <div class="logo">TELLO</div>
+        <p>Видео по ссылке без регистрации</p>
+      </div>
 
-      <button class="primary" id="createRoomBtn">Создать комнату</button>
+      <button class="primary big" id="createRoomBtn">Создать звонок</button>
+
+      <div class="roomBox" id="shareBox" hidden>
+        <div class="smallLabel">Код комнаты</div>
+        <div class="roomCode" id="createdRoomCode">TELLO-000000</div>
+        <div class="linkPreview" id="createdRoomLink"></div>
+        <div class="grid2">
+          <button class="secondary" id="copyLinkBtn">Скопировать</button>
+          <button class="secondary" id="shareLinkBtn">Поделиться</button>
+        </div>
+        <button class="primary" id="startCallBtn">Войти в звонок</button>
+        <p class="hint ok">Друг должен открыть эту же ссылку и нажать «Войти в звонок».</p>
+      </div>
 
       <div class="divider"><span>или</span></div>
 
-      <label for="roomInput">Ввести код комнаты</label>
-      <input id="roomInput" type="text" placeholder="Например: TELLO-483921" autocomplete="off" />
-      <button class="secondary" id="joinRoomBtn">Войти</button>
+      <label for="roomInput">Код комнаты</label>
+      <input id="roomInput" type="text" placeholder="TELLO-483921" autocomplete="off" />
+      <button class="secondary" id="joinRoomBtn">Войти по коду</button>
 
-      <p class="hint">Отправь код или ссылку другу — он сможет сразу подключиться к звонку.</p>
+      <div class="tips">
+        <div>1. Один создаёт звонок</div>
+        <div>2. Отправляет ссылку</div>
+        <div>3. Оба нажимают «Войти»</div>
+      </div>
     </section>
 
     <section class="call" id="callScreen" hidden>
       <div class="topbar">
-        <div>
-          <strong id="roomTitle">Комната</strong>
-          <p id="roomLinkText"></p>
+        <div class="roomInfo">
+          <strong id="roomTitle">TELLO</strong>
+          <span id="statusText">Подключение...</span>
         </div>
         <button class="danger" id="leaveBtn">Выйти</button>
       </div>
+
+      <div class="helper" id="helperBox">
+        <b>Ждём друга</b>
+        <span>Отправь ссылку, и пусть друг нажмёт «Войти в звонок».</span>
+        <button id="copyLinkBtn2">Скопировать ссылку</button>
+      </div>
+
       <div id="jitsiContainer"></div>
+
+      <div class="bottomControls">
+        <button id="muteBtn">Микрофон</button>
+        <button id="videoBtn">Камера</button>
+        <button id="switchCameraBtn">Сменить камеру</button>
+        <button id="serverBtn">Если не подключается</button>
+      </div>
     </section>
+
+    <div class="toast" id="toast" hidden>Скопировано</div>
   </main>
 
-  <script src="https://meet.jit.si/external_api.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
