@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tello Video — видеозвонки по ссылке</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="card" id="homeScreen">
+      <div class="logo">TELLO</div>
+      <p class="subtitle">Простые видеозвонки без регистрации</p>
+
+      <button class="primary" id="createRoomBtn">Создать комнату</button>
+
+      <div class="divider"><span>или</span></div>
+
+      <label for="roomInput">Ввести код комнаты</label>
+      <input id="roomInput" type="text" placeholder="Например: TELLO-483921" autocomplete="off" />
+      <button class="secondary" id="joinRoomBtn">Войти</button>
+
+      <p class="hint">Отправь код или ссылку другу — он сможет сразу подключиться к звонку.</p>
+    </section>
+
+    <section class="call" id="callScreen" hidden>
+      <div class="topbar">
+        <div>
+          <strong id="roomTitle">Комната</strong>
+          <p id="roomLinkText"></p>
+        </div>
+        <button class="danger" id="leaveBtn">Выйти</button>
+      </div>
+      <div id="jitsiContainer"></div>
+    </section>
+  </main>
+
+  <script src="https://meet.jit.si/external_api.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
